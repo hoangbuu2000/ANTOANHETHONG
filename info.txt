@@ -5,3 +5,6 @@ Sửa tên database, username và password tương ứng.
 Trong máy của mình database có tên là java nên url có dạng:
 jdbc:mysql://localhost/{database_name}
 Các bạn nhớ build project để maven tải dependencies về.
+Nhớ add tomcat, ai học đã/đang học lập trình java thì phải biết cài nha.
+Tomcat 9 ko chơi Tomcat 10 nha.
+Có gì lỗi ib mình chỉ.
