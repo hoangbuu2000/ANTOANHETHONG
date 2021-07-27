@@ -1,0 +1,7 @@
+Thư mục QuanLyPhongMachV3 là project, tập tin csdl.sql là file sql.
+Các bạn vào mySQL import file đó để tạo database.
+Mở project, vào thư mục src > main > resources, mở file database.properties.
+Sửa tên database, username và password tương ứng.
+Trong máy của mình database có tên là java nên url có dạng:
+jdbc:mysql://localhost/{database_name}
+Các bạn nhớ build project để maven tải dependencies về.
