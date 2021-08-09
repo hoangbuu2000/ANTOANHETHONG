@@ -34,9 +34,9 @@ public abstract class GenericRepository<T extends Serializable> implements IGene
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public T insert(T t) {
-        if (t.getClass() == TaiKhoan.class){
-            ((TaiKhoan) t).setPassword(bCryptPasswordEncoder.encode(((TaiKhoan) t).getPassword()));
-        }
+//        if (t.getClass() == TaiKhoan.class){
+//            ((TaiKhoan) t).setPassword(bCryptPasswordEncoder.encode(((TaiKhoan) t).getPassword()));
+//        }
 
         currentSession().save(t);
         return t;
