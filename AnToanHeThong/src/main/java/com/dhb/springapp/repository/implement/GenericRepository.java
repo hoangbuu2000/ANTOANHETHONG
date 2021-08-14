@@ -1,7 +1,7 @@
 package com.dhb.springapp.repository.implement;
 
 import com.dhb.springapp.enums.Order;
-import com.dhb.springapp.models.TaiKhoan;
+import com.dhb.springapp.models.*;
 import com.dhb.springapp.repository.IGenericRepository;
 import org.hibernate.HibernateError;
 import org.hibernate.Session;
@@ -37,7 +37,20 @@ public abstract class GenericRepository<T extends Serializable> implements IGene
 //        if (t.getClass() == TaiKhoan.class){
 //            ((TaiKhoan) t).setPassword(bCryptPasswordEncoder.encode(((TaiKhoan) t).getPassword()));
 //        }
-
+        if (t.getClass() == NhanVien.class) {
+            //code ma hoa email and dien thoai here
+            ((NhanVien) t).setEmail("Chuoi ma hoa");
+            ((NhanVien) t).setDienThoai("Chuoi ma hoa");
+        }
+        else if (t.getClass() == BacSi.class) {
+            //code ma hoa email and dien thoai here
+        }
+        else if (t.getClass() == Admin.class) {
+            //code ma hoa email and dien thoai here
+        }
+        else if (t.getClass() == BenhNhan.class) {
+            //code ma hoa email and dien thoai here
+        }
         currentSession().save(t);
         return t;
     }
@@ -82,7 +95,21 @@ public abstract class GenericRepository<T extends Serializable> implements IGene
     @Override
     public List<T> getAll(Class<T> type) {
         Query q = currentSession().createQuery("From " + type.getName());
-        return q.getResultList();
+        List<T> result = q.getResultList();
+        result.forEach(t -> {
+            if (t.getClass() == NhanVien.class) {
+                //code giai ma email va dien thoai here
+                ((NhanVien) t).setEmail("Chuoi giai ma");
+                ((NhanVien) t).setDienThoai("Chuoi giai mai");
+            } else if (t.getClass() == Admin.class) {
+                //code giai ma email va dien thoai here
+            } else if (t.getClass() == BacSi.class) {
+                //code giai ma email va dien thoai here
+            } else if (t.getClass() == BenhNhan.class) {
+                //code giai ma email va dien thoai here
+            }
+        });
+        return result;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = true)

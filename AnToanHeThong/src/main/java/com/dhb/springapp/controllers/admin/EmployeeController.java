@@ -46,8 +46,7 @@ public class EmployeeController {
 
     @GetMapping()
     public String index(ModelMap model) {
-        model.addAttribute("employees", iNhanVienService.getAllOrderBy(NhanVien.class, "ten",
-                Order.asc));
+        model.addAttribute("employees", iNhanVienService.getAll(NhanVien.class));
         return "employee.index";
     }
 

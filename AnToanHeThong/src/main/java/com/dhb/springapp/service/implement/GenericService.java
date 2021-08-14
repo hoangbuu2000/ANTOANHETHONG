@@ -1,5 +1,6 @@
 package com.dhb.springapp.service.implement;
 
+import com.dhb.springapp.models.NhanVien;
 import com.dhb.springapp.models.TaiKhoan;
 import com.dhb.springapp.repository.IGenericRepository;
 import com.dhb.springapp.enums.Order;
@@ -48,6 +49,7 @@ public abstract class GenericService<T extends Serializable> implements IGeneric
 
     @Override
     public List<T> getAllOrderBy(Class<T> type, String field, Enum<Order> order) {
+        List<T> result = this.genericRepository.getAllOrderBy(type, field, order);
         return this.genericRepository.getAllOrderBy(type, field, order);
     }
 
