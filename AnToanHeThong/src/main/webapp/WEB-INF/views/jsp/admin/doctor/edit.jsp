@@ -52,14 +52,14 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label><spring:message code="add.body.label.pass" /> <span class="text-danger">*</span></label>
-                                <form:password path="password" cssClass="form-control" placeholder="" value="${doctor.password}" />
+                                <form:input path="password" cssClass="form-control" placeholder="" value="${doctor.password}" />
                                 <form:errors path="password" cssClass="text-danger" />
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label><spring:message code="add.body.label.confirm" /> <span class="text-danger">*</span></label>
-                                <form:password path="confirmPassword" cssClass="form-control" value="${doctor.confirmPassword}" />
+                                <form:input path="confirmPassword" cssClass="form-control" value="${doctor.confirmPassword}" />
                                 <form:errors path="confirmPassword" cssClass="text-danger" />
                             </div>
                         </div>

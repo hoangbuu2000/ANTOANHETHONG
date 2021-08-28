@@ -55,14 +55,14 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label><spring:message code="admin.add.label.password" /> <span class="text-danger">*</span></label>
-                                    <form:password path="password" cssClass="form-control" value="${admin.password}"/>
+                                    <form:input path="password" cssClass="form-control" value="${admin.password}"/>
                                     <form:errors path="password" cssClass="text-danger"/>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label><spring:message code="admin.add.label.confirmPsw" /> <span class="text-danger">*</span></label>
-                                    <form:password path="confirmPassword" cssClass="form-control" value="${admin.password}"/>
+                                    <form:input path="confirmPassword" cssClass="form-control" value="${admin.password}"/>
                                     <form:errors path="confirmPassword" cssClass="text-danger"/>
                                 </div>
                             </div>

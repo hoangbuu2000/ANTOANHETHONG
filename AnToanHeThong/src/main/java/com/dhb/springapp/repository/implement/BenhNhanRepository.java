@@ -85,6 +85,30 @@ public class BenhNhanRepository extends GenericRepository<BenhNhan> implements I
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public boolean themBenhNhanVaPhieuKhamBenh(BenhNhan benhNhan, PhieuKhamBenh phieuKhamBenh, Set<LoaiBenh> loaiBenhs) {
+        /* =========TU DUONG========== */
+        String pSDT, cSDT, pEmail, cEmail;
+
+        //Ma hoa email
+        String key1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@.";
+        pEmail = benhNhan.getEmail();
+        cEmail = "";
+        for (int i = 0; i < pEmail.length(); i++) {
+            int c = ((key1.indexOf(pEmail.charAt(i))) + 16) % key1.length();
+            cEmail += key1.charAt(c);
+        }
+        benhNhan.setEmail(cEmail);
+
+        //Ma hoa SDT
+        String key2 = "0123456789";
+        pSDT = benhNhan.getDienThoai();
+        cSDT = "";
+        for (int i = 0; i < pSDT.length(); i++) {
+            int c = ((key2.indexOf(pSDT.charAt(i))) + 16) % key2.length();
+            cSDT += key2.charAt(c);
+        }
+        benhNhan.setDienThoai(cSDT);
+        /* =========END MA HOA========= */
+
         BenhNhan b = update(benhNhan);
         currentSession().saveOrUpdate(phieuKhamBenh);
 
